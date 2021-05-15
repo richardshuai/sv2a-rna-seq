@@ -7,8 +7,8 @@ coldata <- read.table("config/samples.tsv", header=TRUE, row.names="sample_name"
 group <- as.factor(coldata$condition)
 dge <- DGEList(counts=cts, group=group)
 
-keep <- filterByExpr(dge)
-dge <- dge[keep, keep.lib.sizes=FALSE]
+# keep <- filterByExpr(dge)
+# dge <- dge[keep, keep.lib.sizes=FALSE]
 dge <- calcNormFactors(dge, method='TMM')
 tmm <- cpm(dge)
 
