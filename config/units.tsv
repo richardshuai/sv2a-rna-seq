@@ -1,4 +1,7 @@
 sample_name	unit_name	fq1	fq2	sra	adapters	strandedness
-A	lane1	A.1.fq.gz	A.2.fq.gz		
-A	lane2	A2.1.fq.gz	A2.2.fq.gz		
-B	lane1	B.1.fq.gz	B.2.fq.gz		
+KB1	lane1	data/processed/KB1.fastq.gz
+KB2	lane1	data/processed/KB2.fastq.gz
+KB3	lane1	data/processed/KB3.fastq.gz
+WB1	lane1	data/processed/WB1.fastq.gz
+WB2	lane1	data/processed/WB2.fastq.gz
+WB3	lane1	data/processed/WB3.fastq.gz

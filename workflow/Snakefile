@@ -1,13 +1,38 @@
+from snakemake.utils import min_version
+
+##### set minimum snakemake version #####
+min_version("5.12.0")
+
+
+##### setup report #####
 configfile: "config/config.yaml"
 
 
-# declare https://github.com/snakemake-workflows/rna-seq-star-deseq2 as a module
-module None:
-    snakefile: 
-        "https://github.com/snakemake-workflows/rna-seq-star-deseq2/raw/v1.1.2/workflow/Snakefile"
-    config:
-        config
+report: "report/workflow.rst"
 
 
-# use all rules from https://github.com/snakemake-workflows/rna-seq-star-deseq2
-use rule * from None
+##### setup singularity #####
+
+
+# this container defines the underlying OS for each job when using the workflow
+# with --use-conda --use-singularity
+container: "docker://continuumio/miniconda3"
+
+
+##### load rules #####
+
+
+include: "rules/common.smk"
+include: "rules/ref.smk"
+include: "rules/trim.smk"
+include: "rules/align.smk"
+include: "rules/diffexp.smk"
+
+
+##### target rules #####
+
+
+rule all:
+    input:
+        get_final_output(),
+        "results/pca.svg"
