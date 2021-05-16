@@ -34,5 +34,4 @@ include: "rules/diffexp.smk"
 
 rule all:
     input:
-        get_final_output(),
-        "results/pca.svg"
+        get_final_outputs(),
