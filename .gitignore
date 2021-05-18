@@ -2,8 +2,9 @@ data
 resources
 .snakemake
 log*
+Log*
 results*
 *.zip
 report
-Log*
 *.idea
+.Rhistory

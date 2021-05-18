@@ -32,7 +32,7 @@ diffexp:
     ko-vs-wt:
       - ko
       - wt
-  model: ~ID + condition
+  model: ~condition
 
 params:
   cutadapt-pe: ""
